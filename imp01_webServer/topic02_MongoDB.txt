@@ -1,0 +1,71 @@
+Purpose:
++ Compare between MySQL and MongoDB
++ Build a server database (MongoDB)
+
+// =====================================================================
+
+SQL vs NOSQL
+MySQL or MongoDB
+
+SQL - Structured Query Language
+SELECT id, name, price FROM products
+Database Structure
+* Tables - Fields (Columns) - Records (Rows)
+E.g. 
+Fields: 		id		name			price		description
+Records:	1		Computer		$1000	...	
+* A Schema: id - name - price - description
+* Relations: Order table fields = id + user_id (user table) + product_id (product table)
+Type of relations: one-to-one; one-to-many; many-to-many
+
+
+NOSQL
+MongoDB: the most famous NOSQL database
+Database: 						Shop
+Collections:		Users							Orders
+Documents: 	{name:'Max', age: 29}			{...}
+					{name:'Min', age: 15}			{...}
+* No Schema
+E.g.	
+id:1		name:''Max"	age: 29		...
+id:2		name:''Mun"					...
+id:3							age:31		...
+* No Relations
+Orders: {id: ''asdf'',  user:{id:1, email:'a@example/com'}. product: {id:2, price: 9.99}}
+
+
+SQL vs NOSQL
+SQL
++ Data use Schemas
++ Relations
++ Data is distributed across multiple tables
++ Horizontal scaling is difficult/impossible
++ Vertical scaling is possible
++ Limitations for lots of read/write queries per second
+NOSQL
++ Schema-less
++ No (or very few Relations) : have to update all Collections for one data
++ Data is typically merged/ nested in a few collections
++ Both horizontal and vertical scaling is possible
++ Great performance for mass (simple) read & write requests
+
+
+// =====================================================================
+
+POST example
+https://appdividend.com/2018/08/22/express-post-request-example-tutorial/
+https://appdividend.com/2018/03/31/mongodb-node-js-rest-api-example/
+https://appdividend.com/2017/06/18/node-js-express-tutorial/
+
+apt-get install mongodb-server
+npm install --save mongoose
+
+MongoDB Tool
+https://www.guru99.com/top-20-mongodb-tools.html
+=> Nosqlclient
+
+
+
+
+
+

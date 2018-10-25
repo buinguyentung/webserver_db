@@ -1,0 +1,48 @@
+Purpose:
++ Study RESTful API
++ Implement uploading Image to server DB using RESTful API
++ Research Http Protocol and its implementation in IoT
+
+// =====================================================================
+
+RESTful API
+Representational State Transfer
+RESTful API la mot tieu chuan dung trong viec thiet ke cac API cho cac ung dung Web de quan ly cac resource.
+Trong tam cua REST la quy dinh cach su dung cac HTTP method va cach dinh dang cac URL cho ung dung Web.
+Vi du mot trang blog de quan ly cac bai viet chung ta co cac URL di voi cac HTTP method nhu sau: 
+	- URL tao bai viet: http://my-blog.xyz/posts. Thuong ung voi HTTP method là POST
+	- URL doc bai viet voi ID la 123: http://my-blog.xyz/posts/123. Thuong ung voi HTTP method là GET
+
+// =====================================================================
+Uploading Image
+https://www.youtube.com/watch?v=srPXMt1Q0nY
+
+
+// =====================================================================
+
+Bandwidth requirements, real-time performance, and memory footprint are some of the main criteria when selecting an IoT protocol
+
+Developers need to be educated that there are better protocol options for IoT devices than IT technologies.
+There are multiple categories of IP:
+Consumer versus industrial
+Web services
+IoT services
+Publish/subscribe
+Request/response
+These categories must be considered when designing a new system.
+
+
+The Hypertext Transfer Protocol (HTTP) is an application-level protocol
+HTTP is a TCP/IP based communication protocol, that is used to deliver data (HTML files, image files, query results, etc.) on the World Wide Web. 
+The default port is TCP 80, but other ports can be used as well.
+This is the foundation for data communication for the World Wide Web (i.e. internet) since 1990.
+
+https://stackoverflow.com/questions/44074864/iot-do-i-need-to-use-mqtt-or-http
+https://www.quora.com/What-is-an-HTTP-Server-and-what-does-it-do
+https://www.tutorialspoint.com/http/http_overview.htm
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+Purpose:
++ Customize UI: HTML, css, etc.
++ Install bootstrap lib for Nodejs
+
+
+// =====================================================================
+
+HTML Condition
+https://stackoverflow.com/questions/42391264/ejs-file-not-rendering-if-it-contains-else-statements
+for on/off button
+<td>
+  <% var led_st = itms[i].led_state; %>                  
+  <% if (led_st == "ON") { %>
+    <a href="/led/ledswitch/<%= itms[i]._id %>" class="btn btn-primary">On</a>
+  <% } %>
+  <% if (led_st == "OFF") { %>
+    <a href="/led/ledswitch/<%= itms[i]._id %>" class="btn btn-danger">Off</a>
+  <% } %>
+</td>
+
+
+// =====================================================================
+
+*** Online bootstrap: 
+//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
+
+*** Include local css:
+npm install bootstrap@3 --save
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+

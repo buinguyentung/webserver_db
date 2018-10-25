@@ -1,0 +1,53 @@
+Purpose:
++ Create a standard nodejs project (Express)
++ Build a webserver
++ Design the web browser template (ejs)
+
+// =====================================================================
+
+TROUBLESHOOTING #1: NPM NETWORK ERROR
+npm config set registry http://registry.npmjs.org/
+npm cache clean
+
+TROUBLESHOOTING #2: On Ubuntu 16: /usr/bin/env: ‘node’: No such file or directory
+apt-get install nodejs-legacy
+
+
+// =====================================================================
+
+HTTP ExpressJS
+https://viblo.asia/p/nodejs-tutorial-phan-4-express-framework-924lJXpNKPM
+https://www.w3schools.com/tags/ref_httpmethods.asp
+https://www.geeksforgeeks.org/get-post-requests-using-python/
+https://appdividend.com/2017/06/18/node-js-express-tutorial/
+
+sudo apt-get install nodejs
+sudo apt-get install npm
+
+npm install express --save
+npm install body-parser --save
+npm install cookie-parser --save
+npm install multer --save
+
+http://10.92.200.120:3000/
+http://10.92.200.120:3000/images/icon.png
+http://10.92.200.120:3000/abcd
+
+Postman Chrome
+https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop​
+
+MIDDLEWARE
+https://viblo.asia/p/nodejs-tutorial-phan-6-middleware-trong-expressjs-924lJXzWKPM
+
+
+Create project Express with express-generator
+1. Install express-generator: sudo npm install -g express-generator
+2. Enter directory and Generate project: express
+3. Install necessary modules: npm install
+4. Run: 
+node ./bin/www
+
+TEMPLATE engine EJS
+npm install ejs --save
+npm uninstall jade --save
+https://scotch.io/tutorials/use-ejs-to-template-your-node-application

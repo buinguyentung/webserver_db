@@ -1,0 +1,26 @@
+Purpose:
++ Implement MQTTjs lib in Nodejs
++ Research MQTT Protocol
+
+// =====================================================================
+
+MQTTjs
+https://steemit.com/utopian-io/@aneilpatel/iot-tutorial-series-1-getting-started-with-mqtt-and-node-js?sort=new
+const mqtt = require('mqtt');
+//const client = mqtt.connect('mqtt://localhost');
+const client = mqtt.connect('mqtt://10.92.200.61:1883');
+https://blog.risingstack.com/getting-started-with-nodejs-and-mqtt/
+http://www.steves-internet-guide.com/using-node-mqtt-client/
+
+Client connect to broker: mqttclients.js
+options_user={
+    //clientId:"mqttjs01",
+    username:"tungbui",
+    password:"1",
+    clean:true};
+const client = mqtt.connect('mqtt://10.92.203.166:1883', options_user);
+
+// =====================================================================
+
+
+

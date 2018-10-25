@@ -1,0 +1,46 @@
+Technology Stack
+Node.js is a platform
+Express is a node.js web framework
+MongoDB is a NoSQL Database
+
+// =================================== WEEK 1 =======================
+1. Install Nodejs, NPM, ejs, Express, MongoDB
+2. Server CRUD: get, post, put, delete
+3. Database: mongodb, mongoose; => Method: add, edit, delete
+4. Tool: VSCode, IntelliJ, Nosqlclient, Postman
+
+Topic 01: Build a web server
+Topic 02: Build server database
+
+
+// =================================== WEEK 2 =======================
+1. Topic 03: HTTP protocol
+2. Topic 04: MQTTjs 
+3. Topic 05: HTML condition
+
+Implement LED on/off control from web browser - server - RaspberryPi broker - ESP (client) - LED
+
+
+// =================================== WEEK 3 =======================
+1. Move server to test machine: ssh prdcv326@10.92.203.166
+2. Demo and complete LED control flow
+
+Copy file via ssh:	scp file.txt prdcv326@10.92.203.166:~/server/
+RaspberryPi broker: 
+	- config ip: raspbery@69.192.x.y
+	- ssh abc@69.192.x.z
+ESP client: via adb => dmesg, setenv
+Wifi hotspot
+
+
+// =================================== WEEK 4 =======================
+
+
+
+
+
+
+
+
+
+
