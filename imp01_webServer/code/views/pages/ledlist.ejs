@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+        <h1>LED List</h1>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <td><b>ID</b></td>
+                <td colspan="2"><b>State</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0; i < itms.length; i++) { %>
+              <tr>
+                <td><%= itms[i].led_id %></td>
+                <td><%= itms[i].led_state %></td>
+                <td>
+                  <% var led_st = itms[i].led_state; %>                  
+                  <% if (led_st == "ON") { %>
+                    <a href="/led/ledswitch/<%= itms[i]._id %>" class="btn btn-danger">Off</a>
+                  <% } %>
+                  <% if (led_st == "OFF") { %>
+                    <a href="/led/ledswitch/<%= itms[i]._id %>" class="btn btn-primary">On</a>
+                  <% } %>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+</html>

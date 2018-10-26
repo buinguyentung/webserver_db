@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+		<div class="jumbotron">
+			<h1>BS2 IoT Group</h1>
+			<p>Welcome to HTTP ExpressJS Server templating using EJS</p>
+        </div>
+        
+        <h2>Raspberry Team</h2>
+        <p><%= tagline %></p>
+
+        <h2>Server Team</h2>
+
+        <ul>
+            <% drinks.forEach(function(drink) { %>
+                <li><%= drink.name %> - <%= drink.drunkness %></li>
+            <% }); %>
+        </ul>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+</html>

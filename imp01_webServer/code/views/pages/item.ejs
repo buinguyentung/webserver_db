@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+        <h1>User List</h1>
+        <a href="/user/add" class="btn btn-primary">Add User</a></td>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <td><b>UserName</b></td>
+                <td colspan="2"><b>Email</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0; i < itms.length; i++) { %>
+              <tr>
+                <td><%= itms[i].name %></td>
+                <td><%= itms[i].email %></td>
+                <td><a href="/user/edit/<%= itms[i]._id %>" class="btn btn-primary">Edit</a></td>
+                <td><a href="/user/delete/<%= itms[i]._id %>" class="btn btn-danger">Delete</a></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+</html>
