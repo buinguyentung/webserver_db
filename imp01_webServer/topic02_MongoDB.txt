@@ -64,8 +64,12 @@ MongoDB Tool
 https://www.guru99.com/top-20-mongodb-tools.html
 => Nosqlclient
 
+Convert mongodb data to csv
+https://www.youtube.com/watch?v=onG8emFdGH4
 
-
+Install Nodejs and Mongodb on Pi
+http://yannickloriot.com/2016/04/install-mongodb-and-node-js-on-a-raspberry-pi/
+=> Not recommended on Pi (32-bit). Only support Mongodb v2.0, not compatible with latest Nodejs.
 
 
 

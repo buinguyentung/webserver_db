@@ -1,0 +1,43 @@
+Purpose:
++ Config Raspberry Pi (MQTT broker + Server + DB)
++ Config Ubuntu PC
++ Config ESP client
+
+
+// =====================================================================
+Connect Ethernet Ubuntu => Pi
+Set static ip for Pi
+$ sudo ifconfig eno1 169.254.122.123
+ssh
+$ ssh tungbui@169.254.122.194
+copy file
+$ scp file.txt pi@169.254.122.194:/home/pi/Document/ServerJs
+root password: raspberry
+
+
+// =====================================================================
+Pi command
+Change WiFi
+$ sudo vi /etc/network/interfaces
+$ sudo /etc/init.d/networking restart
+
+Start server
+$ node server.js &
+
+Stop server
+$ ps -aux | grep server.js
+$ kill 1050
+
+MQTT
+$ mosquitto_sub -t "led"
+$ mosquitto_pub -t "led" -m "LED1 ON"
+
+
+// =====================================================================
+Configure ESP
+$ dmesg
+$ sudo apt-get install picocom
+$ sudo picocom -b 115200 /dev/ttyUSB0
+$ help => saveenv => reboot
+
+

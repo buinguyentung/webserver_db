@@ -1,0 +1,33 @@
+Purpose:
++ Build a SQLite database using SQLite3 library
++ 
+
+
+// =====================================================================
+
+https://www.youtube.com/watch?v=GQNGr5eQiNw&index=12&list=PLzV58Zm8FuBIWu1zvGRUfn0Xh6HXRg9cG
+https://stackabuse.com/a-sqlite-tutorial-with-node-js/
+SQLite
+Lightweight - store database within one single file  => easy to backup, delete
+npm install sqlite3 --build-from-source
+node create_database.js
+sqlite3 pets.db
+> SELECT * FROM users_to_pets
+> SELECT name,pet FROM users_to_pets
+> INSERT INTO led_table VALUES ($led_id, $led_state)
+> SELECT * from led_table WHERE led_id=$led_id
+> UPDATE led_table SET led_state=$led_state WHERE led_id=$led_id
+> DELETE FROM username_table WHERE name=$name
+https://www.w3resource.com/node.js/nodejs-sqlite.php
+
+http://www.sqlitetutorial.net/sqlite-nodejs/query/
+db.all(); db.get(); db.each(); db.run(); db.serialize()
+
+ajax
+http://learn.jquery.com/ajax/jquery-ajax-methods/
+
+Firebase
+Online database
+
+
+

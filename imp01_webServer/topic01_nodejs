@@ -51,3 +51,18 @@ TEMPLATE engine EJS
 npm install ejs --save
 npm uninstall jade --save
 https://scotch.io/tutorials/use-ejs-to-template-your-node-application
+
+
+// =====================================================================
+
+Node Monitor
+Server auto restart when saving code modification (Ctrl + S)
+sudo npm install -g nodemon
+
+// =====================================================================
+
+
+
+
+
+

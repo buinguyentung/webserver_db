@@ -29,4 +29,64 @@ npm install bootstrap@3 --save
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 
+// =====================================================================
+How to add new style into html
+Purpose: Divide screen into 2 columns
+Step 1: Add script inside <head> tag
+<head>
+  <% include ../partials/head %>
+  <style>
+      * {
+          box-sizing: border-box;
+      }
+      
+      /* Create two equal columns that floats next to each other */
+      .column {
+          float: left;
+          width: 50%;
+          padding: 10px;
+          height: 300px; /* Should be removed. Only for demonstration */
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+  </style>
+</head>
+Step 2: 
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+      Content 1
+  </div>
+  <div class="column" style="background-color:#bbb;">
+      Content 2
+  </div>
+</div>
+
+// =====================================================================
+How to add js script into html
+<script src="jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+
+// jQuery convention for running when the document has been fully loaded:
+$(document).ready(() => {
+
+  $('#resetButton').click(() => {
+  
+  });
+  
+});
+
+</script>
+
+// =====================================================================
+
+
+
+
+
 

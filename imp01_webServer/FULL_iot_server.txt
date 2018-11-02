@@ -26,15 +26,26 @@ Implement LED on/off control from web browser - server - RaspberryPi broker - ES
 2. Demo and complete LED control flow
 
 Copy file via ssh:	scp file.txt prdcv326@10.92.203.166:~/server/
-RaspberryPi broker: 
+RaspberryPi broker:
 	- config ip: raspbery@69.192.x.y
 	- ssh abc@69.192.x.z
 ESP client: via adb => dmesg, setenv
-Wifi hotspot
 
 
 // =================================== WEEK 4 =======================
+1. Topic 05: HTML add js script
+2. Topic 06: SQLite
+3. Topic 07: Connection, Configuration devices
 
+Query led_ids in DB for mqtt subcribe topics
+Improve the UI of item.ejs (/user) => html js script
+Implement SQLite3 (compatible with RaspberryPi)
+Connect devices (RaspberryPi => ESP Client)
+
+
+// =================================== WEEK 4 =======================
+1. Topic 08: Query data from GG cloud datastore from Android device
+2. 
 
 
 
