@@ -32,6 +32,13 @@ MQTT
 $ mosquitto_sub -t "led"
 $ mosquitto_pub -t "led" -m "LED1 ON"
 
+Update Pi 2
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install chromium-browser --yes
+https://linux.tips/tutorials/how-to-install-latest-version-of-node-js-on-raspberry-pi-3
+=> Better compatible using SQLite3  latest Nodejs version
+
 
 // =====================================================================
 Configure ESP
