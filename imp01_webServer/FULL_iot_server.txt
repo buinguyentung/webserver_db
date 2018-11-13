@@ -35,7 +35,7 @@ ESP client: via adb => dmesg, setenv
 // =================================== WEEK 4 =======================
 1. Topic 05: HTML add js script
 2. Topic 06: SQLite
-3. Topic 07: Connection, Configuration devices
+3. Topic 07: Connection, Configuration devices (Raspberry Pi)
 
 Query led_ids in DB for mqtt subcribe topics
 Improve the UI of item.ejs (/user) => html js script
@@ -43,15 +43,17 @@ Implement SQLite3 (compatible with RaspberryPi)
 Connect devices (RaspberryPi => ESP Client)
 
 
-// =================================== WEEK 4 =======================
-1. Topic 08: Query data from GG cloud datastore from Android device
+// =================================== WEEK 5 =======================
+1. Topic 08: Query data from Firebase filestore to Android device
 2. 
 
 
+// =================================== WEEK 6 =======================
+1. 
 
+Add temperature, humidity device list
+https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contains-a-substring-in-javascript?page=2&tab=votes#tab-top
 
-
-
-
+Writing setup server guideline
 
 

@@ -10,7 +10,7 @@
 	</header>
 
 	<main>
-        <h1>LED List</h1>
+        <h1>LED</h1>
         <table class="table table-striped">
             <thead>
               <tr>
@@ -19,7 +19,9 @@
               </tr>
             </thead>
             <tbody>
-              <% for(var i=0; i < itms.length; i++) { %>
+              <% for (var i=0; i < itms.length; i++) { %>
+              <% var led_id = itms[i].led_id; %>
+              <% if (led_id.indexOf("LED") + 1) { %>
               <tr>
                 <td><%= itms[i].led_id %></td>
                 <td><%= itms[i].led_state %></td>
@@ -34,8 +36,54 @@
                 </td>
               </tr>
               <% } %>
+              <% } %>
             </tbody>
           </table>
+        <hr/>
+
+        <h2>TEMPERATURE</h2>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <td><b>ID</b></td>
+                <td colspan="2"><b>Value</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (var i=0; i < itms.length; i++) { %>
+              <% var led_id = itms[i].led_id; %>
+              <% if (led_id.indexOf("TEMP") + 1) { %>
+              <tr>
+                <td><%= itms[i].led_id %></td>
+                <td><%= itms[i].led_state %></td>
+              </tr>
+              <% } %>
+              <% } %>
+            </tbody>
+          </table>
+        <hr/>
+
+        <h2>HUMIDITY</h2>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <td><b>ID</b></td>
+                <td colspan="2"><b>Value</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (var i=0; i < itms.length; i++) { %>
+              <% var led_id = itms[i].led_id; %>
+              <% if (led_id.indexOf("HUMID") + 1) { %>
+              <tr>
+                <td><%= itms[i].led_id %></td>
+                <td><%= itms[i].led_state %></td>
+              </tr>
+              <% } %>
+              <% } %>
+            </tbody>
+          </table>
+        <hr/>
 	</main>
 
 	<footer>

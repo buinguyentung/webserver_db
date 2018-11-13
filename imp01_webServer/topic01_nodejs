@@ -6,7 +6,7 @@ Purpose:
 // =====================================================================
 
 TROUBLESHOOTING #1: NPM NETWORK ERROR
-npm config set registry http://registry.npmjs.org/
+npm config set registry https://registry.npmjs.org/
 npm cache clean
 
 TROUBLESHOOTING #2: On Ubuntu 16: /usr/bin/env: ‘node’: No such file or directory

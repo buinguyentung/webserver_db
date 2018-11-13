@@ -6,6 +6,9 @@ Purpose:
 
 MQTTjs
 https://steemit.com/utopian-io/@aneilpatel/iot-tutorial-series-1-getting-started-with-mqtt-and-node-js?sort=new
+
+$ npm install mqtt --save
+
 const mqtt = require('mqtt');
 //const client = mqtt.connect('mqtt://localhost');
 const client = mqtt.connect('mqtt://10.92.200.61:1883');

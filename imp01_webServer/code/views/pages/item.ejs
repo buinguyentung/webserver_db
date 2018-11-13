@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<% include ../partials/head %>
+  <% include ../partials/head %>
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    /* Create two equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px; /* Should be removed. Only for demonstration */
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
 </head>
 <body class="container">
 
@@ -11,7 +31,6 @@
 
 	<main>
         <h1>User List</h1>
-        <a href="/user/add" class="btn btn-primary">Add User</a></td>
         <table class="table table-striped">
             <thead>
               <tr>
@@ -30,6 +49,25 @@
               <% } %>
             </tbody>
           </table>
+          <hr/>
+        <div class="row">
+          <div class="column" style="background-color:#bbb;">
+            <h3>Add New User</h3>
+            <form method="post" action="/user/">
+              <div class="form-group">
+                <label for="name">UserName</label>
+                <input type="text" class="form-control" id="name" name="name">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email">
+              </div>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+          </div>
+          <div class="column" style="background-color:rgb(255, 255, 255);">
+              
+          </div>
+        </div>
+        <hr/>
 	</main>
 
 	<footer>

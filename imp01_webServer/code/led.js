@@ -3,9 +3,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Led = new Schema({
+const LedDataSchema = new Schema({
   led_id: {
-    type: String
+    type: String, require: true
   },
   led_state: {
       type: String
@@ -14,4 +14,4 @@ const Led = new Schema({
     collection: 'leds'
 });
 
-module.exports = mongoose.model('Led', Led);
+module.exports = mongoose.model('Led', LedDataSchema);
