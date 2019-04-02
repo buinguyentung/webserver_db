@@ -33,11 +33,51 @@ typedef struct _BARCODE_INFO {
     std::vector<int> y;
 } BARCODE_INFO;
 
-const std::string url("http://localhost:3000/brdata");
+const std::string url("http://192.168.0.102:3000/cam");
+//const std::string url("http://localhost:3000/cam");
 
-/*void makeHTTPRequestforRawJSON() {
+void extractJSONData(Json::Value jsonData) {
     std::vector<BARCODE_INFO> barcodeList;
 
+    //std::cout << "Successfully parsed JSON data" << std::endl;
+    //std::cout << "\nJSON data received:" << std::endl;
+    //std::cout << jsonData.toStyledString() << std::endl;
+
+    const std::string camId(jsonData["camid"].asString());
+    const std::size_t unixTimeMs(jsonData["date"].asUInt64());
+    const int numBr(jsonData["num"].asInt());
+
+    for (int i = 0; i < numBr; i++) {
+        BARCODE_INFO barcode;
+        barcode.barcodeID = jsonData["code"][i]["id"].asInt();
+        for (int j = 0; j < barcode.NUM_POINTS; j++) {
+            barcode.x.push_back(jsonData["code"][i]["vertex"][j]["x"].asInt());
+            barcode.y.push_back(jsonData["code"][i]["vertex"][j]["y"].asInt());
+        }
+        barcodeList.push_back(barcode);
+    }
+    //const int x1(jsonData["code"][0]["vertex"][j]["x"].asInt());
+    //const int y1(jsonData["code"][0]["vertex"][1]["y"].asInt());
+
+    std::cout << "Natively parsed:" << std::endl;
+    std::cout << "\tCamId       : " << camId << std::endl;
+    std::cout << "\tUnix timeMs : " << unixTimeMs << std::endl;
+    std::cout << "\tNumber of BR: " << numBr << std::endl;
+    //for (int i = 0; i < numBr; i++) {
+    //    std::cout << "\tID     : " << barcodeList[i].barcodeID << std::endl;
+    //}
+    for (std::vector<BARCODE_INFO>::iterator it = barcodeList.begin(); it != barcodeList.end(); ++it) {
+        std::cout << "\tID      : " << (*it).barcodeID << std::endl;
+        std::cout << "\tPos     : ";
+        for (int i = 0; i < (*it).NUM_POINTS; i++) {
+            std::cout << (*it).x[i] << " - " << (*it).y[i] << " ; ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+void makeHTTPRequestforRawJSON() {
     CURL *curl = curl_easy_init();;
     //CURLcode res;
 
@@ -85,38 +125,7 @@ const std::string url("http://localhost:3000/brdata");
                 std::cout << "\nJSON data received:" << std::endl;
                 std::cout << jsonData.toStyledString() << std::endl;
 
-                const std::string camId(jsonData["camid"].asString());
-                const std::size_t unixTimeMs(jsonData["date"].asUInt64());
-                const int numBr(jsonData["num"].asInt());
-
-                for (int i = 0; i < numBr; i++) {
-                    BARCODE_INFO barcode;
-                    barcode.barcodeID = jsonData["code"][i]["id"].asInt();
-                    for (int j = 0; j < barcode.NUM_POINTS; j++) {
-                        barcode.x.push_back(jsonData["code"][i]["vertex"][j]["x"].asInt());
-                        barcode.y.push_back(jsonData["code"][i]["vertex"][j]["y"].asInt());
-                    }
-                    barcodeList.push_back(barcode);
-                }
-                //const int x1(jsonData["code"][0]["vertex"][j]["x"].asInt());
-                //const int y1(jsonData["code"][0]["vertex"][1]["y"].asInt());
-
-                std::cout << "Natively parsed:" << std::endl;
-                std::cout << "\tCamId       : " << camId << std::endl;
-                std::cout << "\tUnix timeMs : " << unixTimeMs << std::endl;
-                std::cout << "\tNumber of BR: " << numBr << std::endl;
-                //for (int i = 0; i < numBr; i++) {
-                //    std::cout << "\tID     : " << barcodeList[i].barcodeID << std::endl;
-                //}
-                for (std::vector<BARCODE_INFO>::iterator it = barcodeList.begin(); it != barcodeList.end(); ++it) {
-                    std::cout << "\tID     : " << (*it).barcodeID << std::endl;
-                    std::cout << "\tPos     : ";
-                    for (int i = 0; i < (*it).NUM_POINTS; i++) {
-                        std::cout << (*it).x[i] << " - " << (*it).y[i] << " ; ";
-                    }
-                    std::cout << std::endl;
-                }
-                std::cout << std::endl;
+                extractJSONData(jsonData);
             }
             else
             {
@@ -131,7 +140,8 @@ const std::string url("http://localhost:3000/brdata");
             return;
         }
     }
-}*/
+}
+
 void makeHTTPRequestforRawJSON_simple() {
     std::vector<BARCODE_INFO> barcodeList;
 
@@ -172,29 +182,64 @@ void makeHTTPRequestforRawJSON_simple() {
 
 }
 
+void makeHTTPRequestforRawJSON_hpp() {
+    std::vector<BARCODE_INFO> barcodeList;
+
+    try
+    {
+        http::Request request(url.c_str());
+
+        // send a get request
+        http::Response response = request.send("GET");
+        std::cout << response.body.data() << std::endl; // print the result
+
+        /*unsigned char* pos = response.body.data();
+        for (int i = 0; i < response.body.size(); i++) {
+            std::cout << i << "th: " << *pos++ << std::endl;
+        }*/
+
+        std::string response_text (response.body.begin(), response.body.end());
+        // Response looks good - done using Curl now.  Try to parse the results
+        // and print them out.
+        Json::Value jsonData;
+        Json::Reader jsonReader;
+
+        if (jsonReader.parse(response_text, jsonData))
+        {
+            std::cout << "Successfully parsed JSON data" << std::endl;
+            std::cout << "\nJSON data received:" << std::endl;
+            std::cout << jsonData.toStyledString() << std::endl;
+
+            extractJSONData(jsonData);
+        }
+        else
+        {
+            std::cout << "Could not parse HTTP data as JSON" << std::endl;
+            std::cout << "HTTP data was:\n" << response_text << std::endl;
+            return;
+        }
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "Request failed, error: " << e.what() << std::endl;
+    }
+
+}
+
 int main() {
 
     while (1) {
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-	std::cout << "GET from " << url << std::endl;
+        std::cout << "GET from " << url << std::endl;
 
-	//Choose any methods
-	//Method 1: CURL
+        // Choose any methods
+        // Method 1: CURL
+        //makeHTTPRequestforRawJSON();
         //makeHTTPRequestforRawJSON_simple();
 
-	//Method 2: HTTPRequest.hpp        
-        try
-        {
-            http::Request request(url.c_str());
+        // Method 2: HTTPRequest.hpp
+        makeHTTPRequestforRawJSON_hpp();
 
-            // send a get request
-            http::Response response = request.send("GET");
-            std::cout << response.body.data() << std::endl; // print the result
-        }
-        catch (const std::exception& e)
-        {
-            std::cerr << "Request failed, error: " << e.what() << std::endl;
-        }
     }
 
     return 0;

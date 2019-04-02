@@ -4,6 +4,10 @@ Purpose:
 
 // =====================================================================
 
+Install mosquitto for Ubuntu
+$ sudo apt-get install mosquitto
+$ sudo service mosquitto start|status|stop
+
 MQTTjs
 https://steemit.com/utopian-io/@aneilpatel/iot-tutorial-series-1-getting-started-with-mqtt-and-node-js?sort=new
 

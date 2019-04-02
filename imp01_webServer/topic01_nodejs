@@ -6,7 +6,10 @@ Purpose:
 // =====================================================================
 
 TROUBLESHOOTING #1: NPM NETWORK ERROR
+npm config set registry http://registry.npmjs.org/
+(or)
 npm config set registry https://registry.npmjs.org/
+then
 npm cache clean
 
 TROUBLESHOOTING #2: On Ubuntu 16: /usr/bin/env: ‘node’: No such file or directory
@@ -23,6 +26,7 @@ https://appdividend.com/2017/06/18/node-js-express-tutorial/
 
 sudo apt-get install nodejs
 sudo apt-get install npm
+sudo apt-get install nodejs-legacy
 
 npm install express --save
 npm install body-parser --save
