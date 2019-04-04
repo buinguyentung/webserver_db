@@ -1,0 +1,29 @@
+// ======= OpenCV
+// Load and Show image
+https://docs.opencv.org/3.2.0/db/deb/tutorial_display_image.html
++ Install OpenCV 3.2
++ Modify CMakeLists.txt
+
+// Draw line, rectangle, and so on
+https://docs.opencv.org/3.3.0/d3/d96/tutorial_basic_geometric_drawing.html
+```
+k=cv2.waitKey(10) & 0XFF //which will auto refresh your screen each 10 milliseconds.
+```
+
+// Store image
+https://docs.opencv.org/3.4.3/db/d64/tutorial_load_save_image.html
+
+
+// ======= Install Latest OpenCV 3.x
+$ git clone https://github.com/opencv/opencv.git
+$ cd opencv
+$ git checkout b6e8de23f8779ccff35688375ca8c489cf4bd012
+$ mkdir build
+$ cd build
+$ cmake -DWITH_IPP=0 -DWITH_FFMPEG=OFF .. -DWITH_CUDA=0
+$ make -j
+$ sudo make install
+
+Check openCV version:
+$ pkg-config --modversion opencv
+
