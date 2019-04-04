@@ -1,4 +1,7 @@
 // g++ test.cpp -ljsoncpp -lcurl -o test -std=c++11
+// Work with BrDataRoute.js
+// + Read info from Web-server (HTTP Request)
+// + Extract it to BARCODE_INFO
 #include <cstdint>
 #include <iostream>
 #include <memory>
@@ -33,8 +36,7 @@ typedef struct _BARCODE_INFO {
     std::vector<int> y;
 } BARCODE_INFO;
 
-const std::string url("http://192.168.0.102:3000/cam");
-//const std::string url("http://localhost:3000/cam");
+const std::string url("http://localhost:3000/brdata");
 
 void extractJSONData(Json::Value jsonData) {
     std::vector<BARCODE_INFO> barcodeList;
