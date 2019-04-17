@@ -15,6 +15,13 @@ npm cache clean
 TROUBLESHOOTING #2: On Ubuntu 16: /usr/bin/env: ‘node’: No such file or directory
 apt-get install nodejs-legacy
 
+TROUBLESHOOTING #3: If you meet NPM::ERROR while install any packages:
+sudo npm config set http-proxy http://your_proxy_ip:port
+sudo npm config set https-proxy http://your_proxy_ip:port
+Ex.
+sudo npm config set http-proxy http://myproxy:8080/
+sudo npm config set https-proxy http://myproxy:8080/
+Note: we could check npm configurations again in file ~/.npmrc
 
 // =====================================================================
 
@@ -24,10 +31,48 @@ https://www.w3schools.com/tags/ref_httpmethods.asp
 https://www.geeksforgeeks.org/get-post-requests-using-python/
 https://appdividend.com/2017/06/18/node-js-express-tutorial/
 
+// === Install Nodejs version 4.x (default on Ubuntu 16.04)
 sudo apt-get install nodejs
 sudo apt-get install npm
 sudo apt-get install nodejs-legacy
+=>
+tungbui@PC-u16:~$ nodejs --version
+v4.2.6
+tungbui@PC-u16:~$ npm --version
+3.5.2
+tungbui@PC-u16:~$ node-gyp --version
+v3.0.3
 
+// === Install Nodejs version 10.x (recommended)
+// === https://nodejs.org/en/
+Step 1: Install Nodejs version 10.x and npm version 6.x (which you already did)
+​sudo apt install curl
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+It will automatically install both nodejs and npm. We do not need nodejs-legacy anymore.
+=>
+tungbui@PC-u16:~/IHI/WebServer$ nodejs -v
+v10.15.3
+tungbui@PC-u16:~/IHI/WebServer$ npm -v
+6.4.1
+
+Step 2: Create WebServer project directory
+​sudo npm install express-generator -g
+express --view=pug WebServer
+cd WebServer
+sudo npm install
+
+Install necessary packages
+​sudo npm install body-parser --save
+sudo npm install request --save
+
+Step 3:
+Now we can try to run the Web Server
+​node ./bin/www
+
+
+// === Install necessary module
+// === If not appears in package.json
 npm install express --save
 npm install body-parser --save
 npm install cookie-parser --save
