@@ -17,6 +17,21 @@ enum ValueType
 };
 
 
+// ======= Libraries installation
+https://jpinjpblog.wordpress.com/2017/12/18/installing-mqtt-for-c-on-raspberry-pi/
+sudo apt-get install libmosquitto-dev libmosquittopp-dev libssl-dev
+
+curl.h no such file or directory
+sudo apt-get install libcurl4-openssl-dev
+
+sudo apt-get install libjsoncpp-dev
+sudo ln -s /usr/include/jsoncpp/json/ /usr/include/json
+
+https://gist.github.com/connormanning/41efa6075515019e499c
+g++ curl_jsoncpp_example.cpp -ljsoncpp -lcurl -o example.out && ./example.out
+g++ test.cpp -ljsoncpp -lcurl -o test -std=c++11
+
+
 
 
 
