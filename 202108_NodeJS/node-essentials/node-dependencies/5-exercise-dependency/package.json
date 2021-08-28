@@ -1,0 +1,16 @@
+{
+  "name": "5-exercise-dependency",
+  "version": "1.0.0",
+  "description": "",
+  "main": "address-parser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
