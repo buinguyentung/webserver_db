@@ -1,0 +1,17 @@
+{
+  "name": "atp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {},
+  "author": "AnhHP",
+  "license": "ISC",
+  "browser": {
+    "child_process": false
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "express": "^4.17.1"
+  }
+}
