@@ -1,0 +1,7 @@
+{
+    "username": "postgres",
+    "password": "admin",
+    "host": "postgres",
+    "database": "mytodos",
+    "port": 5432
+}

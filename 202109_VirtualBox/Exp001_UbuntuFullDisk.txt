@@ -1,0 +1,10 @@
+Suddenly, I cannot boot Ubuntu on VMs.
+------
+Step 1: Hit Alt + F3 -> Login
+Step 2: df -h -> /dev/sda1 Use% 100%
+Step 3: Remove anything that can free some disk space (e.g., docker images)
+Step 4: Power off VM
+---
+Step 5: On Oracle VM VirtualBox Manager > File > Virtual Media Manager
+Step 6: Select image.vdi > increase hard disks size > Apply
+Step 7: Boot Ubuntu > Open Disks application > Increase /dev/sda1 partition size > Resize

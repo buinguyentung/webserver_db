@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+  postgres:
+    stdin_open: true
+    tty: true
+    restart: always
+    image: my-postgres
+    container_name: tung-postgres
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    ports:
+      - '5555:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'admin'
+      POSTGRES_DB: 'mytodos'
+      PGDATA: '/var/lib/postgresql/data/pgdata'
+    volumes:
+      - my_mount:/var/lib/postgresql/data
+  server:
+    stdin_open: true
+    tty: true
+    image: my-server
+    container_name: tung-server
+    build:
+      context: ./node-todos
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3000'
+    depends_on:
+      - postgres
+
+volumes:
+  my_mount:
