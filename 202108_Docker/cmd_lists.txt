@@ -1,0 +1,124 @@
+//========== Install docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+docker version
+docker info 
+
+//========== Run docker without sudo
+sudo usermod -aG docker $USER
+reboot machine is needed.
+
+//========== Docker Commands
+docker ps
+docker ps -a
+docker run node
+docker stop node
+docker stop node -t 0 (stop without waiting)
+docker rm node
+
+docker images
+docker rmi image_name
+docker pull repository_name
+	docker pull nginx:1.14-alpine
+
+docker run ubuntu
+docker run ubuntu sleep 5
+docker run docker/whalesay cowsay boo
+docker exec container_name command
+	docker exec tung_ubuntu cat /etc/hosts
+
+=== Run container on background (detach/attach)
+docker run -d repository_name
+	docker run -d kodekloud/simple-webapp
+docker attach container_name/ID
+	docker attach a043d
+
+//========== Docker Run
+docker run --name webapp nginx:1.14-alpine
+
++ STANDARD IO
+docker run -it centos bash (i: standard input; t: pseudo terminal)
+	cat /etc/*release*
+	exit
+
++ PORT mapping
+docker run -p 80:5000 kodekloud/simple-webapp
+(80: host port; 5000: container local port)
+
++ Volume mapping
+docker run -v host_dir:container_dir image_name
+	docker run -v /opt/datadir:/var/lib/mysql mysql
+(/opt/datadir: host directory;
+/var/lib/mysql: local container directory)
+
++ List all volume
+docker volume ls
+Where is docker volume stored?
+/var/lib/docker/volumes/ 
+
++ ENV variable
+docker run -e APP_COLOR=blue simple-webapp-color
+
++ LOGGING
+docker inspect container_name
+docker logs container_name
+docker history container_name
+
+docker run --name mysql-db -e MYSQL_ROOT_PASSWORD=db_pass123 mysql
+docker exec mysql-db mysql -pdb_pass123 -e 'use foo; select * from myTable'
+docker run -d --name=mysql-db -e MYSQL_ROOT_PASSWORD=db_pass123 -v /opt/data:/var/lib/mysql mysql
+docker run -d --name=mysql-db -e MYSQL_ROOT_PASSWORD=db_pass123 --network=wp-mysql-network mysql:5.6
+
+//========== Docker Images
+Dockerfile
+docker build . -t tungbui/my-simple-webapp
+docker build . -f Dockerfile2 -t tungbui/my-simple-webapp2
+
+Push image to Docker Hub
+docker login
+docker push tungbui/my-simple-webapp
+
+//========== Docker Compose
+YAML file
+docker-compose up
+docker-compose stop
+docker-compose down
+docker-compose up --build -d
+
+docker run -d --name=redis redis
+docker run -d --name=db postgres
+docker run -d --name=vote -p 5000:80 --link redis:redis voting-app
+docker run -d --name=result -p 5001:80 --link db:db result-app
+docker run -d --name=worker --link redis:redis --link db:db worker
+
+//========== Docker Registry
+docker login private-registry.io
+docker run private-registry.io/apps/internal-app
+
+docker run -d -p 5000:5000 --name=registry registry:2
+docker image tag my-image localhost:5000/my-image
+docker push localhost:5000/my-image
+
+docker pull localhost:5000/my-image
+docker pull 192.168.56.100:5000/my-image
+
+//========== Docker Engine
+docker run --cpus=.5 ubuntu
+docker run --memory=100m ubuntu
+
+STORAGE
+docker volume create data_volume
+docker run -v data_volume:/var/lib/mysql mysql
+docker run --mount type=bind,source=/data/mysql,target=/var/lib/mysql mysql
+
+docker system df
+docker system df -v
+docker history a1b2c3d4
+
+NETWORK
+docker network ls
+docker network create --driver bridge --subnet 182.18.0.1/24 --gateway 182.18.0.1 wp-mysql-network
+docker run -d --name=webapp -p 38080:8080 -e DB_Host=mysql-db -e DB_Password=db_pass123 --network=wp-mysql-network  kodekloud/simple-webapp-mysql
+
+
+
