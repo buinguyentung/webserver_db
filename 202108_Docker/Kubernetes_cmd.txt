@@ -1,0 +1,68 @@
+//========== kubectl / minikube
+$ kubectl version
+$ kubectl run hello-minikube
+$ kubectl cluster-info
+$ kubectl get nodes
+$ kubectl get nodes -o wide
+
+$ minikube start --driver=virtualbox
+$ minikube status
+
+//========== POD
+$ kubectl run nginx --image=nginx
+$ kubectl get pods
+$ kubectl get pods -o wide
+$ kubectl describe pod nginx
+$ kubectl delete pod nginx
+
+$ kubectl create -f pod-definition.yaml
+$ kubectl get pods
+$ kubectl describe pod myapp-pod
+
+$ kubectl run redis --image=redis123 --dry-run=client -o yaml > pod.yaml
+$ kubectl apply -f pod.yaml
+$ kubectl edit pod redis	=> correct image from 'redis123' to 'redis'
+
+//========== ReplicationController / ReplicaSet
+$ kubectl create -f rc-definition.yaml
+$ kubectl get replicationcontroller
+
+$ kubectl create -f replicaset-definition.yaml
+$ kubectl get replicaset
+$ kubectl describe replicaset myapp-replicaset
+$ kubectl edit replicaset myapp-replicaset		// edit kubenetes configuration file
+$ kubectl delete replicaset myapp-replicaset
+
+Method 1: increase the replicas (3->6)	
+	$ kubectl replace -f replicaset-definition.yml
+Method 2: scale cmd	
+	$ kubectl scale --replicas=6 -f replicaset-definition.yml
+	$ kubectl scale --replicas=6 replicaset myapp-replicaset
+
+//========== Deployment
+$ kubectl create -f deployment-definition.yml
+$ kubectl create -f deployment-definition.yml --record
+$ kubectl get deployments
+$ kubectl describe deployment myapp-deployment
+$ kubectl get all
+
+Status
+$ kubectl rollout status deployment/myapp-deployment
+$ kubectl rollout history deployment/myapp-deployment
+
+Update
+$ kubectl apply -f deployment-definition.yml
+$ kubectl set image deployment/myapp-deployment nginx=nginx:1.91
+$ kubectl describe deployment myapp-deployment	=> See deployment strategy is RECREATE or ROLLING UPDATE.
+
+Rollback
+$ kubectl rollout undo deployment/myapp-deployment
+
+
+
+
+
+
+
+
+
