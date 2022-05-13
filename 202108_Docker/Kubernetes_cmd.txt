@@ -23,6 +23,8 @@ $ kubectl run redis --image=redis123 --dry-run=client -o yaml > pod.yaml
 $ kubectl apply -f pod.yaml
 $ kubectl edit pod redis	=> correct image from 'redis123' to 'redis'
 
+$ kubectl exec -it POD_NAME -- /bin/bash
+
 //========== ReplicationController / ReplicaSet
 $ kubectl create -f rc-definition.yaml
 $ kubectl get replicationcontroller
@@ -58,8 +60,15 @@ $ kubectl describe deployment myapp-deployment	=> See deployment strategy is REC
 Rollback
 $ kubectl rollout undo deployment/myapp-deployment
 
-
-
+//========== Service
+$ kubectl create -f service-definition.yaml
+$ kubectl get services
+$ minikube service myapp-service --url
+$ kubectl describe service myapp-service
+$ kubectl expose deployment simple-webapp-deployment --name=webapp-service /
+   --target-port=8080 --type=NodePort --port=8080 --dry-run=client -o yaml > svc.yaml
+$ kubectl get pods,svc
+$ kubectl get deployments,svc
 
 
 
