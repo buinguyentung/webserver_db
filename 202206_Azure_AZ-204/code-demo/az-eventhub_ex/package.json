@@ -1,0 +1,17 @@
+{
+  "name": "az-eventhub_ex",
+  "version": "1.0.0",
+  "description": "Send and receive events with Azure Event Hubs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tung Bui",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/event-hubs": "^5.8.0",
+    "@azure/eventhubs-checkpointstore-blob": "^1.0.1",
+    "@azure/storage-blob": "^12.10.0",
+    "dotenv": "^16.0.1"
+  }
+}
