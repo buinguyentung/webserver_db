@@ -25,6 +25,14 @@ $ kubectl edit pod redis	=> correct image from 'redis123' to 'redis'
 
 $ kubectl exec -it POD_NAME -- /bin/bash
 
+$ kubectl logs pod-name
+$ kubectl logs pod-name -f 	// stream logs
+$ kubectl logs pod-name container-name
+$ kubectl logs pod-name --all-containers
+$ kubectl logs pod-name --since=2h
+$ kubectl logs pod-name --tail=10
+$ kubectl logs pod-name > my-pod-logs.txt
+
 //========== ReplicationController / ReplicaSet
 $ kubectl create -f rc-definition.yaml
 $ kubectl get replicationcontroller

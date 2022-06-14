@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tung-app-deployment
+  labels:
+    type: deployment-app
+    env: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: backend
+  template:
+    metadata:
+      name: tung-app-pod
+      labels:
+        name: tung-app
+        type: backend
+    spec:
+      containers:
+        - name: tung-server-container
+          image: tungkuberegistry.azurecr.io/tung-server
+          ports:
+            - containerPort: 8080

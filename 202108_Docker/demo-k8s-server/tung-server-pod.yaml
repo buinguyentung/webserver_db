@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tung-app-pod
+  labels:
+    app: tung-app
+    type: backend
+    env: production
+spec:
+  containers:
+    - name: tung-server-container
+      image: tungkuberegistry.azurecr.io/tung-server
+      ports:
+        - containerPort: 8080
