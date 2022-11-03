@@ -1,0 +1,88 @@
+az find blob
+az storage blob --help
+
+//============= Manage virtual machines with the Azure CLI
+https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/
+Azure Cloud Shell
+
+Create resource group
+$ az group list | grep id
+    "id": "/subscriptions/e6b1a91a-7af1-4025-8a99-f717210b4a91/resourceGroups/learn-1473d058-40e9-4ede-99d9-c20cd4953b2d",
+$ az group create --name tungrg --location westus
+
+Create VM
+$ az vm image list --output table
+$ az vm image list --location eastus --output table
+$ az vm create --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1 --image UbuntuLTS --admin-username tungbui --admin-password Tung@123456789 --public-ip-sku Standard --size "Standard_DS2_v2"
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "20.245.134.75",
+$ ssh tungbui@<public-ip-address>
+
+Sizing VMs properly
+$ az vm list-sizes --location eastus --output table
+$ az vm list-vm-resize-options --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1 --output table
+$ az vm resize --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1 --size Standard_D2s_v3
+
+Query VM
+$ az vm list --output table
+$ az vm list-ip-addresses -n tungvm1 -o table
+$ az vm show --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1
+$ az vm show --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1 --query "osProfile.adminUsername" -o tsv
+
+Start/Stop VM
+$ az vm stop --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1
+$ az vm start --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1
+$ az vm restart --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1 --no-wait
+
+Install extension
+$ sudo apt-get -y update && sudo apt-get -y install nginx
+$ az vm open-port --port 80 --resource-group learn-1473d058-40e9-4ede-99d9-c20cd4953b2d --name tungvm1
+$ curl -m 80 20.245.134.75
+
+
+
+//============= Create a Windows virtual machine in Azure 
+https://learn.microsoft.com/en-us/training/modules/create-windows-virtual-machine-in-azure/
+
+
+//============= Host a web application with Azure App Service
+https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/
+$ az appservice plan create --resource-group learn-22acdd21-66cd-4114-9f4b-341eb52229b8 --name tungaspzxc --sku D1 --location eastus
+$ az webapp create --resource-group learn-22acdd21-66cd-4114-9f4b-341eb52229b8 --plan tungaspzxc --name tungwebapp234
+$ az webapp up --name tungwebapp234 --resource-group learn-22acdd21-66cd-4114-9f4b-341eb52229b8 --plan tungaspzxc
+
+
+//============= Protect your virtual machine settings with Azure Automation State Configuration
+https://learn.microsoft.com/en-us/training/modules/protect-vm-settings-with-dsc/
+Create a VM
+Create an Azure Automation account
+Create a DSC configuration script
+$ pwsh
+$ code tungconfig.ps1
+	Configuration tungconfig {
+		Node "localhost" {
+			WindowsFeature MyFeatureInstance {
+			Ensure = 'Present'
+			Name = 'Web-Server'
+			}
+		}
+	}
+Import-AzAutomationDscConfiguration `
+    -Published `
+    -ResourceGroupName learn-44371650-5986-40d2-ab2b-157e3889243c `
+    -SourcePath tungconfig.ps1 `
+    -Force `
+    -AutomationAccountName tungauto
+Compile the DSC script
+Register the VM with your Azure Automation account
+
+
+
+
+tungaz111.onmicrosoft.com
+tung@tungaz111.onmicrosoft.com
+Luyo2338
+
+
+
+

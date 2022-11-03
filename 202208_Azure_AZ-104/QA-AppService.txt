@@ -1,0 +1,53 @@
+App Service
+
++ ASP.NET Core (on Windows or Linux)
++ ASP.NET (on Windows)
+
+//===
+You have an Azure subscription named Subscription1. Subscription1 contains the resource groups in the following table
+	RG1		West Europe		Policy1
+	RG2		North Europe	Policy2
+RG1 has a web app named WebApp1. WebApp1 is located in West Europe.
+You move WebApp1 to RG2.
+What is the effect of the move?
+	A. The App service plan (ASP) remains in West Europe. Policy2 applies to WebApp1
+	B. The App service plan (ASP) moves to North Europe. Policy2 applies to WebApp1
+	C. The App service plan (ASP) remains in West Europe. Policy1 applies to WebApp1
+	D. The App service plan (ASP) moves to North Europe. Policy1 applies to WebApp1
+Explanation
+Correct Answer: A
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the same resource group and geographical region.
+The region in which your app runs is the region of the App Service plan it's in. However, you cannot change an App Service plan's region.
+
+//===
+You have the App Service plans shown in the following table.
+	ASP1	Windows		WestUS
+	ASP2	Windows		CentralUS
+	ASP3	Linux		WestUS
+You plan to create the Azure web apps shown in the following table.
+	WebApp1	.NET Core 3.0	WestUS
+	WebApp2	ASP.NET 4.7		WestUS
+You need to identify which App Service plans can be used for the web apps.
+Which of the following App service plans can you use for WebApp1?
+Explanation
+Correct Answer: D
+ASP1 and ASP3 only
+ASP.NET Core apps can be hosted both on Windows or Linux.
+The region in which your app runs is the region of the App Service Plan is in.
+ASP2 is in Central US, not the same as WebApp1. Different locations.
+
+//===
+Which of the following App service plans can you use for WebApp2?
+Correct Answer: A
+ASP1 only
+ASP.NET apps can be hosted on Windows only. Only ASP1 is in the same Location as the WebApp2 (West US).
+
+//===
+//===
+//===
+//===
+//===
+//===
+//===
+//===
+

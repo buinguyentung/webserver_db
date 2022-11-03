@@ -1,0 +1,73 @@
+Storage - Sync
++ ZRS: Replicates synchronously.
++ GRS, RA-GRS: Replicates asynchronously.
+
+
+
+//===
+You have an on-premises file server named Server1 that runs Windows Server 2016.
+You have an Azure subscription that contains an Azure file share.
+You deploy an Azure File Sync Storage Sync Service, and you create a sync group.
+You need to synchronize files from Server1 to Azure.
+Which three actions should you perform in sequence?
+1. Install the Azure File Sync agent on Server1
+2. Create an Azure on-premises data gateway
+3. Create a Recovery Services vault
+4. Register Server1
+5. Add a server endpoint
+6. Install the DFS Replication server role on Server1
+	A. 1 - 4 - 5
+	B. 6 - 5 - 4
+	C. 2 - 1 - 5
+	D. 3 - 1 - 4
+Explanation
+Correct Answer: 1 -> 4 -> 5
+Step 1: Install the Azure File Sync agent on Server1
+The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share
+Step 2: Register Server1
+Register Windows Server with Storage Sync Service
+Registering your Windows Server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service.
+Step 3: Add a server endpoint
+Create a sync group and a cloud endpoint.
+
+//===
+You plan to create an Azure Storage account in the Azure region of East US 2.
+You need to create a storage account that meets the following requirements:
+⦿ Replicates synchronously.
+⦿ Remains available if a single data center in the region fails.
+Replication:
+	A. GRS
+	B. LRS
+	D. RA-GRS
+	C. ZRS
+Explanation
+Correct Answer: D
+Zone-redundant storage (ZRS) replicates your data synchronously across three storage clusters in a single region.
+LRS would not remain available if a data center in the region fails
+GRS and RA GRS use asynchronous replication
+
+//===
+You have an Azure subscription that contains the storage accounts shown in the following table.
+	storage 1	StorageV2		Standard
+	storage 2	BlobStorage		Standard
+	storage 3	BlockBlobStorage	Premium
+	storage 4	FileStorage			Premium
+You plan to manage the data stored in the accounts by using lifecycle management rules.
+To which storage accounts can you apply lifecycle management rules?
+	A. storage 1 only
+	B. storage 1, storage 2 only
+	C. storage 3, storage 4 only
+	D. storage 1, storage 2, storage 3 only
+	E. storage 1, storage 2, storage 3, storage 4
+Explanation
+Correct Answer: D
+The lifecycle management feature is available in all Azure regions for general purpose v2 (GPv2) accounts, blob storage accounts, premium block blobs storage accounts, and Azure Data Lake Storage Gen2 accounts.
+
+
+//===
+//===
+//===
+//===
+//===
+//===
+//===

@@ -1,0 +1,66 @@
+Virtual Machine
+
++ Quota (ex. vCPU) based on the total number of cores in use both allocated and deallocated.
++ DNS server port 53; Web server port 80; RDP port 3389 TCP;
++ While resizing, the VM must be in a stopped state, therefore there will be a downtime.
++ VM and VMSS should be in same resource group and same location.
+
+//===
+You have an Azure subscription named Subscription1 that contains the quotas shown in the following table.
+	Standard BS family vCPUs	WestUS	0 of 20
+	Standard D family vCPUs		WestUS	0 of 20
+	Total regional vCPUs		WestUS	0 of 20
+You deploy virtual machines to Subscription1 as shown in the following table.
+	VM1	Standard_B2ms	2 vCPUs		WestUS	Running
+	VM2	Standard_B16ms	16 vCPUs	WestUS	Stopped (deallocated)
+You plan to deploy the virtual machines shown in the following table.
+	VM3	Standard_B2ms	1
+	VM4	Standard_D4s_v3	4
+	VM5	Standard_B16ms	16
+For each of the following statements, select Yes if the statement is true. Otherwise, select No.
+	You can deploy VM3 to West US	=> YES
+	You can deploy VM4 to West US	=> NO
+	You can deploy VM5 to West US	=> NO
+Explanation
+Total regional vCPUs = 20
+2 vCPUs (VM1) + 16 vCPUs (VM20) = 18 vCPUs, which means that only 2 vCPUs left to exceed usage limit.
+We can add 1 vCPU. 2 vCPUs (VM1) + 16 vCPUs (VM20) + 1 vCPU (VM3) = 19 vCPUs
+
+//===
+You plan to deploy several Azure virtual machines that will run Windows Server 2019 in a virtual machine scale set by using an Azure Resource Manager template.
+You need to ensure that NGINX is available on all the virtual machines after they are deployed.
+What should you use?
+	A. the Publish-AzADDscConfiguration cmdlet
+	B. Azure Application Insights
+	C. Azure Custom Script Extension
+	D. the New-AzConfigurationAssignment cmdlet
+Explanation
+Correct Answer: C
+With an Azure Custom Script extension you can push the NGINX installation after VMs are created using the Resource manager template.
+Note:
+There are several versions of this question in the exam. The question has two correct answers:
+1. a Desired State Configuration (DSC) extension
+2. Azure Custom Script Extension
+
+//===
+You need to ensure that VM1 can be created in an Availability Zone.
+Which two settings should you modify?
+	A. Use managed disks
+	B. OS disk type
+	C. Availability options
+	D. Size
+	E. Image
+Explanation
+Correct Answer: AC
+A. Use managed disks
+Your VMs should use managed disks if you want to move them to an Availability Zone by using Site Recovery.
+C. Availability options
+When you create a VM for an Availability Zone, Under Settings > High availability, select one of the numbered zones from the Availability zone dropdown.
+
+//===
+//===
+//===
+//===
+//===
+//===
+//===

@@ -1,0 +1,111 @@
+Virtual Networks
+
+
+
+
+//===
+You have an Azure subscription.
+Users access the resources in the subscription from either home or from customer sites. From home, users must establish a point-to-site VPN to access the Azure resources. The users on the customer sites access the Azure resources by using site-to-site VPNs.
+You have a line-of-business-app named App1 that runs on several Azure virtual machine. The virtual machines run Windows Server 2016.
+You need to ensure that the connections to App1 are spread across all the virtual machines.
+What are two possible Azure services that you can use?
+	A. an internal load balancer
+	B. a public load balancer
+	C. an Azure CDN
+	D. traffic manager
+	E. an Azure Application gateway
+Explanation
+Correct Answer: AE
+Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
+A: The customer sites are connected through VPNs, so an internal load balancer is enough.
+E: Azure Application Gateway is a valid option, as it provides load balancing in addition to routing and security functions.
+
+Incorrect Answers:
+B: The customer sites are connected through VPNs, so there's no need for a public load balancer, an internal load balancer is enough.
+C: A CDN does not provide load balancing for applications, so it not relevant for this situation.
+D: Traffic manager is a DNS based solution to direct users' requests to the nearest (typically) instance and does not provide load balancing for this situation.
+
+
+//===
+You have an Azure Active Directory (Azure AD) tenant that has the contoso.onmicrosoft.com domain name.
+You have a domain name of contoso.com registered at a third-party registrar.
+You need to ensure that you can create Azure AD users that have names containing a suffix of @contoso.com.
+Which three actions should you perform in sequence?
+1. Add a record to the public contoso.com DNS zone
+2. Add an Azure AD tenant
+3. Configure company branding
+4. Create an Azure DNS zone
+5. Add a custom name
+6. Verify the domain
+	A. 5 - 1 - 6
+	B. 4 - 5 - 1
+	C. 1 - 5 - 6
+	D. 2 - 4 - 6
+Explanation
+Correct Answer:  5 -> 1 -> 6
+1. Add the custom domain name to your directory
+2. Add a DNS entry for the domain name at the domain name registrar
+3. Verify the custom domain name in Azure AD
+
+//===
+Your on-premises network contains an SMB share named Share1.
+You have an Azure subscription that contains the following resources:
+⦿ A web app named webapp1
+⦿ A virtual network named VNET1
+You need to ensure that webapp1 can connect to Share1.
+What should you deploy?
+	A. an Azure Application Gateway
+	B. an Azure AD application proxy
+	C. an Azure virtual network gateway
+Explanation
+Correct Answer: C
+A Site-to-Site VPN gateway connection can be used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device, a VPN gateway, located on-premises that has an externally facing public IP address assigned to it.
+
+Incorrect Answers:
+A: Application Gateway is for http, https and Websocket - Not SMB
+B: Not SMB - Application Proxy is a feature of Azure AD that enables users to access on-premises web applications from a remote client.
+
+//===
+You have an Azure subscription named Subscription1 that contains an Azure virtual network named VNet1. VNet1 connects to your on-premises network by using Azure ExpressRoute.
+You plan to prepare the environment for automatic failover in case of ExpressRoute failure.
+You need to connect VNet1 to the on-premises network by using a site-to-site VPN. The solution must minimize cost.
+Which three actions should you perform?
+	A. Create a connection
+	B. Create a local site VPN gateway
+	C. Create a VPN gateway that uses VpnGw1 SKU
+	D. Createa gateway subnet
+	E. Create a VPN gateway that uses the Basic SKU
+Explanation
+Correct Answer: ABC
+Vnet1 is already connected by ExpressRoute, which we presume that the subnet gateway was already created.
+SKU need to be VpnGw1 because Basic does not coexist with ExpressRoute.
+
+For a site to site VPN, you need:
+⦿ a local gateway
+⦿ a gateway subnet
+⦿ a VPN gateway
+⦿ a connection to connect the local gateway and the VPN gateway
+
+
+//===
+You have an Azure subscription that contains the resources in the following table.
+	VM1		VM
+	VM2		VM
+	LB1		Load Balancer (Basic SKU)
+You install the Web Server server role (IIS) on VM1 and VM2, and then add VM1 and VM2 to LB1.
+For each of the following statements, select Yes if the statement is true. Otherwise, select No.
+
+VM1 is in the same availability set as VM2	=>  YES
+Explanation
+Correct Answer: A
+A Basic Load Balancer supports virtual machines in a single availability set or virtual machine scale set.
+	+ Basic Load Balancer: Virtual machines in a single availability set or virtual machine scale set.
+	+ Standard Load Balancer: Any virtual machines or virtual machine scale sets in a single virtual network.
+
+
+//===
+//===
+//===
+//===
+//===
+//===

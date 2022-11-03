@@ -1,0 +1,67 @@
+https://www.udemy.com/course/az-104-microsoft-azure-administrator-exam-practice-tests/
+
+//===
+Your company's Azure subscription includes Azure virtual machines (VMs) that run Windows Server 2016.
+One of the VMs is backed up every day using Azure Backup Instant Restore.
+When the VM becomes infected with data encrypting ransomware, you decide to recover the VM's files.
+Which of the following is TRUE in this scenario?
+	A. Can only recover the files to the infected VM
+	B. Can recover the files to any VM within the company's subscription
+	C. Can only recover the files to a new VM
+	D. Will not be able to recover the files
+Explanation
+Correct Answer: A
+In-place restore capability: With instant restore, users also get a capability to perform in-place restore, thus, overwriting the data in the original disk rather than creating a copy of the disk at an alternate location.
+This would overwrite the encrypted data in the case of a ransomware attack.
+
+//===
+You have an Azure subscription that contains a resource group named RG26.
+RG26 is set to the West Europe location and is used to create temporary resources for a project. RG26 contains the resources shown in the following table.
+	VM1		VM							North Europe
+	RGV1	Recovery Service Vault		North Europe
+	SQLDB01	SQL server in Azure VM		North Europe
+	Sa001	Storage account				North Europe
+SQLDB01 is backed up to RGV1.
+When the project is complete, you attempt to delete RG26 from the Azure portal. The deletion fails.
+You need to delete RG26.
+What should you do first?
+	A. Delete VM1
+	B. Stop VM1
+	C. Stop the backup of SQLDB01
+	D. Delete Sa001
+Explanation
+Correct Answer: C
+You can't delete a vault that contains backup data. So in this case at first you have to delete the backup of 'SQLD01' before you attempt to delete the vault.
+
+//===
+Users report that the frontend application is slower than usual.
+You need to view the average round-trip time (RTT) of the packets from VM1 to VM2.
+Which Azure Network Watcher feature should you use?
+	A. IP flow verify
+	B. Connection troubleshoot
+	C. Connection monitor
+	D. NSG flow logs
+Explanation
+Correct Answer: C
+The connection monitor capability monitors communication at a regular interval and informs you of reachability, latency, and network topology changes between the VM and the endpoint
+
+Incorrect Answers:
+A: The IP flow verify capability enables you to specify a source and destination IPv4 address, port, protocol (TCP or UDP), and traffic direction (inbound or outbound). IP flow verify then tests the communication and informs you if the connection succeeds or fails. If the connection fails, IP flow verify tells you which security rule allowed or denied the communication, so that you can resolve the problem.
+B: The connection troubleshoot capability enables you to test a connection between a VM and another VM, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the connection monitor capability, but tests the connection at a point in time, rather than monitoring it over time, as connection monitor does.
+D: The NSG flow log capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG.
+
+//===
+//===
+//===
+//===
+//===
+//===
+//===
+//===
+//===
+//===
+
+
+
+
+
