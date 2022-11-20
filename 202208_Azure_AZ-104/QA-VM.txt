@@ -57,10 +57,61 @@ Your VMs should use managed disks if you want to move them to an Availability Zo
 C. Availability options
 When you create a VM for an Availability Zone, Under Settings > High availability, select one of the numbered zones from the Availability zone dropdown.
 
+//=== TEST-4
+Your company has three virtual machines (VMs) that are included in an availability set.
+You try to resize one of the VMs, which returns an allocation failure message.
+It is imperative that the VM is resized.
+Which of the following actions should you take?
+	A. You should only stop one of the VMs
+	B. You should stop two of the VMs
+	C. You should stop all three VMs
+	D. You should remove the necessary VM from the availability set
+Explanation
+Correct Answer: C
+If the VM you wish to resize is part of an availability set, then you must stop all VMs in the availability set before changing the size of any VM in the availability set.
+The reason all VMs in the availability set must be stopped before performing the resize operation to a size that requires different hardware is that all running VMs in the availability set must be using the same physical hardware cluster. 
+
 //===
+You have an Azure virtual machine (VM) that has a single data disk. You have been tasked with attaching this data disk to another Azure VM.
+You need to make sure that your strategy allows for the virtual machines to be offline for the least amount of time possible.
+Which of the following is the action you should take FIRST?
+	A. Stop the VM that includes the data disk
+	B. Stop the VM that the data disk must be attached to
+	C. Detach the data disk
+	D. Delete the VM that includes the data disk
+Explanation
+Correct Answer: C
+You can simply detach a data disk from one VM and attach it to the other VM without stopping either of the VMs.
+You can only attach a data disk to a VM that is running
+
 //===
+You have an Azure subscription that contains an Azure Availability Set named WEBPROD-AS-USE2 as shown in the following exhibit.
+	"platformFaultDomainCount": 2,
+	"platformUpdateDomainCount": 10
+You add 14 virtual machines to WEBPROD-AS-USE2.
+* When Microsoft performs planned maintenance in East US 2, the maximum number of unavailable virtual machines will be ..........
+	A. 2 
+	B. 7
+	C. 10
+	D. 14
+Correct Answer: A
+There are 10 update domains. The 14 VMs are shared across the 10 update domains so four update domains will have two VMs and six update domains will have one VM. Only one update domain is rebooted at a time. Therefore, a maximum of two VMs will be offline.
+
+* If the server rack in the Azure datacenter that hosts WEBPROD-AS-USE2 experiences a power failure, the maximum number of unavailable virtual machines will be ..........
+Correct Answer: B
+There are 2 fault domains. The 14 VMs are shared across the 2 fault domains, so 7 VMs in each fault domain. A rack failure will affect one fault domain so 7 VMs will be offline.
+
 //===
-//===
+You have an Azure subscription that contains 10 virtual networks. The virtual networks are hosted in separate resource groups.
+Another administrator plans to create several network security groups (NSGs) in the subscription.
+You need to ensure that when an NSG is created, it automatically blocks TCP port 8080 between the virtual networks.
+
+* You create a resource lock, and then you assign the lock to the subscription. => NO
+
+* You assign a built-in policy definition to the subscription. => NO
+
+* You configure a custom policy definition, and then you assign the policy to the subscription. => YES
+
 //===
 //===
 //===

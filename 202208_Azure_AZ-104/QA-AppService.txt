@@ -42,7 +42,21 @@ Correct Answer: A
 ASP1 only
 ASP.NET apps can be hosted on Windows only. Only ASP1 is in the same Location as the WebApp2 (West US).
 
-//===
+//=== TEST-4
+You create an App Service plan named Plan1 and an Azure web app named webapp1.
+You discover that the option to create a staging slot is unavailable.
+You need to create a staging slot for Plan1.
+What should you do first?
+	A. From Plan1, scale up the ASP
+	B. From webapp1, modify the Application settings
+	C. From webapp1, add a custom domain
+	D. From Plan1, scale out the ASP
+Explanation
+Correct Answer: A
+The app must be running in the Standard, Premium, or Isolated tier in order for you to enable multiple deployment slots.
+Scale up: Get more CPU, memory, disk space, and extra features like dedicated virtual machines (VMs), custom domains and certificates, staging slots, autoscaling, and more.
+Scale out: Increase the number of VM instances that run your app. You can scale out to as many as 30 instances
+
 //===
 //===
 //===

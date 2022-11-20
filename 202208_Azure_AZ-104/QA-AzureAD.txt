@@ -23,7 +23,35 @@ Correct Answer:  5 -> 1 -> 6
 2. Add a DNS entry for the domain name at the domain name registrar
 3. Verify the custom domain name in Azure AD
 
-//===
+//=== TEST-4
+You have the Azure management groups shown in the following table:
+	Tenant Root group
+	MG11		Tenant Root group
+	MG12		Tenant Root group
+	MG21		MG11
+You add Azure subscriptions to the management groups as shown in the following table:
+	Subscription1	MG21
+	Subscription2	MG12
+You create the Azure policies shown in the following table:
+	Not allowed resource types		VirtualNetworks		Tenant Root group
+	Allowed resource types			VirtualNetworks		MG12
+
+* You can create a virtual network in Subscription1
+Explanation
+Correct Answer: B (NO)
+Subscription1 is a member of ManagementGroup21, ManagementGroup21 is a member of ManagementGroup11, ManagementGroup11 is a member of the Tenant Root Group, The Tenant Root group has Not allowed resource types for virtual network.
+
+* You can create a virtual machine in Subscription2
+Explanation
+Correct Answer: B (NO)
+Allowed Resource Type (Deny): Defines the resource types that you can deploy. Its effect is to deny all resources that aren't part of this defined list.
+ManagementGroup12 is in Subscription2 and in the Scope of the 2nd policy. Allowed resource types are virtualNetworks. This means all other resources are denied by default.
+
+* You can add Subscription1 to ManagementGroup11
+Explanation
+Correct Answer: B (NO)
+You cannot ADD Subscription1 to ManagementGroup11, but you can MOVE Subscription1 from ManagementGroup21 to ManagmentGroup11. Subscriptions can only be a member of ONE ManagementGroup at a time.
+
 //===
 //===
 //===

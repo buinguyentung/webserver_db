@@ -1,6 +1,6 @@
 Virtual Networks
 
-
+You can assign NSG to the Subnet of the VNet in the same region where NSG is.
 
 
 //===
@@ -73,7 +73,7 @@ Which three actions should you perform?
 	A. Create a connection
 	B. Create a local site VPN gateway
 	C. Create a VPN gateway that uses VpnGw1 SKU
-	D. Createa gateway subnet
+	D. Create a gateway subnet
 	E. Create a VPN gateway that uses the Basic SKU
 Explanation
 Correct Answer: ABC
@@ -103,8 +103,43 @@ A Basic Load Balancer supports virtual machines in a single availability set or 
 	+ Standard Load Balancer: Any virtual machines or virtual machine scale sets in a single virtual network.
 
 
+//=== TEST-4
+You have an Azure web app named webapp1.
+You have a virtual network named VNET1 and an Azure virtual machine named VM1 that hosts a MySQL database. VM1 connects to VNET1.
+You need to ensure that webapp1 can access the data hosted on VM1.
+What should you do?
+	A. Deploy an internal load balancer
+	B. Peer VNET1 to another VNET
+	C. Connect webapp1 to VNET1
+	D. Deploy an Azure Application Gateway
+Explanation
+Correct Answer: C
+Connect the webapp to VNET using webapp VNET integration. where webapp can access the resources in the VNET.
+The VNet Integration feature has two variations:
+⦿ Regional virtual network integration: When you connect to virtual networks in the same region, you must have a dedicated subnet in the virtual network you're integrating with.
+⦿ Gateway-required virtual network integration: When you connect directly to virtual networks in other regions or to a classic virtual network in the same region, you need an Azure Virtual Network gateway created in the target virtual network.
+
 //===
-//===
+You have an on-premises network that you plan to connect to Azure by using a site-so-site VPN.
+In Azure, you have an Azure virtual network named VNet1 that uses an address space of 10.0.0.0/16 VNet1 contains a subnet named Subnet1 that uses an address space of 10.0.0.0/24.
+You need to create a site-to-site VPN to Azure.
+Which four actions should you perform in sequence?
+1. Create a local gateway
+2. Create a VPN gateway
+3. Create a gateway subnet
+4. Create a custom DNS server
+5. Create a VPN connection
+6. Create an Azure Content Delivery Network (CDN) profile
+Explanation
+Correct Answer: 3 -> 2 -> 1 -> 5
+As per documentation:
+1. Create a virtual network + gateway subnet
+2. Create a VPN gateway
+3. Create a local network gateway
+4. Create a VPN connection
+5. Verify the connection
+6. Connect to a virtual machine
+
 //===
 //===
 //===

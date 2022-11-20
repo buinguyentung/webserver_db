@@ -38,8 +38,8 @@ You need to create a storage account that meets the following requirements:
 Replication:
 	A. GRS
 	B. LRS
-	D. RA-GRS
-	C. ZRS
+	C. RA-GRS
+	D. ZRS
 Explanation
 Correct Answer: D
 Zone-redundant storage (ZRS) replicates your data synchronously across three storage clusters in a single region.
@@ -64,9 +64,53 @@ Correct Answer: D
 The lifecycle management feature is available in all Azure regions for general purpose v2 (GPv2) accounts, blob storage accounts, premium block blobs storage accounts, and Azure Data Lake Storage Gen2 accounts.
 
 
+//=== TEST-4
+You have an Azure subscription that contains a storage account.
+You have an on-premises server named Server1 that runs Windows Server 2016. Server1 has 2 TB of data.
+You need to transfer the data to the storage account by using the Azure Import/Export service.
+In which order should you perform the actions?
+1. From the Azure portal, update the import job
+2. From the Azure portal, create an import job
+3. Attach an external disk to Server1 and then run waimportexport.exe
+4. Detach the external disks from Server1 and ship the disks to an Azure data center
+Explanation
+Correct Answer: 3 -> 2 -> 4 -> 1
+Step 1: Prepare the drives (Attach an external disk to Server1 and then run waimportexport.exe)
+Step 2: Create an import job (From the Azure portal, create an import job)
+Step 3: Ship the drives to the Azure datacenter (Detach the external disks from Server1 and ship the disks to an Azure data center)
+Step 4: Update the job with tracking information (From the Azure portal, update the import job)
+
 //===
+You have an Azure subscription named Subscription1.
+You create an Azure Storage account named contosostorage, and then you create a file share named data.
+Which UNC path should you include in a script that references files from the data file share? 
+Explanation
+Correct Answer: \\contosostorage.file.core.windows.net\data
+
 //===
-//===
+You have an Azure subscription that contains the file shares shown in the following table.
+	share1		WestUS
+	share2		WestUS
+	share3		EastUS
+You have the on-premises file shares shown in the following table.
+	data1	Server1		D:\Folder1
+	data2	Server1		E:\Folder2
+	data3	Server1		E:\Folder2
+You create an Azure file sync group named Sync1 and perform the following actions:
+⦿ Add share1 as the cloud endpoint for Sync1.
+⦿ Add data1 as a server endpoint for Sync1.
+⦿ Register Server1 and Server2 to Sync1.
+
+* You can add share3 as an additional cloud endpoint for Sync1 => NO
+A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints.
+
+* You can add data2 as an additional server endpoint for Sync1 => YES
+Data2 is located on Server2 which is registered to Sync1.
+
+* You can add data3 as an additional server endpoint for Sync1 => NO
+Data3 is located on Server3 which is not registered to Sync1.
+
+
 //===
 //===
 //===
